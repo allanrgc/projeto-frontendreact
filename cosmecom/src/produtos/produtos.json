@@ -1,0 +1,65 @@
+[
+  {
+    "img": "https://http2.mlstatic.com/D_NQ_NP_696885-CBT53429213463_012023-V.jpg",
+    "id": "001",
+    "name": "Roupa de ET",
+    "type": ["Roupa", "Acessório"],
+    "value": 150
+  },
+  {
+    "img": "https://a-static.mlcdn.com.br/1500x1500/brinquedo-onibus-espacial-astronautas-completo-brinquedos-chocolate/oliststore/mgltrm2t1eau7s0u/8a5bdd80e6515ead585e66e1511c7e7e.jpg",
+    "id": "002",
+    "name": "Foguete Espacial",
+    "type": ["Brinquedo", "Acessório"],
+    "value": 97
+  },
+  {
+    "img": "http://d3ugyf2ht6aenh.cloudfront.net/stores/001/693/828/products/6-variant-spaceman-lua-amante-colar-via-lactea-espaco-pingente-colares-joias-presente-para-girlfrend-espacial-astronauta-romantico-colar1-09bbf5cb4d9b146b7f16433912669666-640-0.png",
+    "id": "003",
+    "name": "Galax Necklace",
+    "type": ["Joia", "Acessório"],
+    "value": 48
+  },
+  {
+    "img": "https://conteudo.imguol.com.br/c/entretenimento/54/2017/08/24/spacex-traje-1503582301208_v2_450x450.jpg",
+    "id": "004",
+    "name": "Space suit",
+    "type": ["Colecionavel", "Acessório"],
+    "value": 4890
+  },
+  {
+    "img": "https://m.media-amazon.com/images/I/71Uuxamr81L._AC_SX425_.jpg",
+    "id": "005",
+    "name": "Telescopio",
+    "type": ["Brinquedo", "Colecionavel"],
+    "value": 440
+  },
+  {
+    "img": "https://img.ltwebstatic.com/gspCenter/goodsImage/2022/7/11/2350011035/ACF1F8D1DB763D050DBB181AD6435A14_thumbnail_600x.jpg",
+    "id": "006",
+    "name": "Luminária",
+    "type": ["Colecionavel", "Acessório"],
+    "value": 39
+  },
+  {
+    "img": "https://http2.mlstatic.com/D_NQ_NP_681310-MLB49344574102_032022-O.webp",
+    "id": "007",
+    "name": "Zathura gameplay",
+    "type": ["Brinquedo" ,"Colecionavel"],
+    "value": 79
+  },
+  {
+    "img": "https://m.media-amazon.com/images/I/616zfYX3M9L._SX382_BO1,204,203,200_.jpg",
+    "id": "008",
+    "name": "Space Atlas 2nd Edition",
+    "type": ["Colecionavel"],
+    "value": 257
+  },
+  {
+    "img": "https://m.media-amazon.com/images/I/618Zf+utVjL._AC_SX569_.jpg",
+    "id": "009",
+    "name": "Blocos de Montar Estação Espacial 511pcs",
+    "type": ["Brinquedo", "Colecionavel"],
+    "value": 145
+  }
+]
