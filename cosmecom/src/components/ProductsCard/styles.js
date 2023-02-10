@@ -5,12 +5,14 @@ export const Container = styled.div`
   min-width: 15rem;
   max-width: 16rem;
   min-height: 20rem;
-  max-height: 24rem;
+  max-height: auto;
   background-color: ${(props) => props.color};
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  margin: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
   color: #ffffff;
 `;
 
@@ -52,7 +54,7 @@ export const ButtonsCart = styled.div`
 
 export const CatchButton = styled.button`
   margin: 0.25rem 0.5rem;
-  width: 8rem;
+  width: 4rem;
   height: 2rem;
   background: #ffffff;
   border-radius: 8px;
@@ -63,4 +65,5 @@ export const CatchButton = styled.button`
 export const Produtos = styled.img`
   width: 153px;
   height: 193px;
+  box-shadow: 5px 5px 15px 5px #000000;
 `;

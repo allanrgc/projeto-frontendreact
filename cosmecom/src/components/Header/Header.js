@@ -1,14 +1,14 @@
 import React from "react";
 import { Container } from "./styles";
 
-const Header = ({
-  nomeLogin
-}) => {
+const Header = (props) => {
 
   return (
     <Container>
-      <p>{nomeLogin}</p>
+      <p>{props.nomeLogin}</p>
       <h3>Cosmecom</h3>
+      
+      
     </Container>
   );
 };
