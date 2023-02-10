@@ -14,13 +14,13 @@ const Aside = ({
 
   return (
     <Container>
-      <input
+      <input disabled
         value={buscaId}
         onChange={(e) => {
           setBuscaId(e.target.value);
         }}
         type="number"
-        placeholder="Buscar por id"
+        placeholder="Id"
       />
       <input
         value={buscaName}
@@ -28,7 +28,7 @@ const Aside = ({
           setBuscaName(e.target.value);
         }}
         type="text"
-        placeholder="Buscar por nome"
+        placeholder="Produto"
       />
       <select
         value={orderName}
@@ -37,8 +37,8 @@ const Aside = ({
         }}
       >
         <option value="">Ordenar</option>
-        <option value="crescente">Crescente</option>
-        <option value="decrescente">Decrescente</option>
+        <option value="crescente">De A - Z</option>
+        <option value="decrescente">De Z - A</option>
       </select>
       <select
         value={orderValue}

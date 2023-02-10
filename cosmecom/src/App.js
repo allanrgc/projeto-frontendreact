@@ -1,41 +1,85 @@
   import styled, { createGlobalStyle } from "styled-components";
   import produtos from "./produtos/produtos.json";
-  import ProductCard from "./components/ProductsCard/ProductsCard";
+  import { ProductCard } from "./components/ProductsCard/ProductsCard";
   import { getColors } from "./utils/ReturnCardColor";
   import Header from "./components/Header/Header.js";
   import Aside from "./components/Aside/Aside.js";
-  import { useState } from "react";
+  import { useEffect, useState } from "react";
   import background from "./assets/Cosmic.gif";
+  import { Cart } from "./components/Cart/Cart"
+
   const GlobalStyle = createGlobalStyle`
+  
     *{
       padding: 0;
       margin: 0;
       box-sizing: border-box;
       font-family: "Inter", sans-serif;
-    
+      
     }
   `;
   const CardsContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     justify-items: center;
     background: black;
   `;
   function App() {
-    const [nomeLogin, setNomeLogin] = useState("Nome doo Usuário");
+    const [nomeLogin, setNomeLogin] = useState("User: Labenu");
     const [buscaId, setBuscaId] = useState("");
     const [buscaName, setBuscaName] = useState("");
     const [orderName, setOrderName] = useState("");
     const [orderValue, setOrderValue] = useState("");
+
+    const [produtosCart, setProdutosCart] = useState([]);
+
+    useEffect(() => {
+      const stringProduct = JSON.stringify(produtosCart);
+      if (produtosCart.length > 0) {
+          localStorage.setItem('cart', stringProduct);
+      }
+  }, [produtosCart]);
+
+  useEffect(() => {
+      const getShoppingCart = localStorage.getItem('cart');
+      const novaLista = JSON.parse(getShoppingCart);
+      if (novaLista) {
+          setProdutosCart(novaLista);
+      }
+  }, []);
+
+    const addProductCart = (produtos) => {
+  
+      const produtoExistente = produtosCart.find(produto => produto.id === produtos.id);
+  
+      if (produtoExistente) {
+        setProdutosCart(
+          produtosCart.map(produto=>produto.id === produtos.id
+            ? {...produto, quantity : produto.quantity +1} 
+            : produto
+            )
+            
+        )
+      } else {
+        setProdutosCart([...produtosCart, {...produtos, quantity: 1}])
+      }
+  
+    }
+
     return (
       <>
-        <GlobalStyle />
+      <GlobalStyle />
         <Header
           nomeLogin={nomeLogin}
           
         />
-        <Aside>
-          buscaId={buscaId}
+        <Cart
+                  cardColor={getColors(produtos.type)}
+                  produtosCart={produtosCart}
+                  setProdutosCart={setProdutosCart}
+                  
+                />
+        <Aside buscaId={buscaId}
           setBuscaId={setBuscaId}
           buscaName={buscaName}
           setBuscaName={setBuscaName}
@@ -43,12 +87,14 @@
           setOrderName={setOrderName}
           orderValue={orderValue}
           setOrderValue={setOrderValue}
-        </Aside>
+          />
+        
         <CardsContainer 
         style={{ 
           // backgroundImage: `url(https://`
           backgroundImage: `url(${background})`
           }}> 
+          {/* <p>{JSON.stringify(produtosCart)}</p> */}
           {produtos
             .filter((produtos) => {
               if (buscaId && produtos.id.includes(buscaId)) {
@@ -82,18 +128,31 @@
                 return a.value < b.value ? 0 : -1;
               }
             })
-            .map((produtos) => {
+            .map((products) => {
               return (
                 <ProductCard
-                  cardColor={getColors(produtos.type[0])}
-                  key={produtos.id}
-                  produtos={produtos}
+                  cardColor={getColors(products.type[0])}
+                  key={products.id}
+                  produtos={products}
+                  // {...produtosCart.find((item) => item.id === produtos.id)?.qtd
+                  //   ? produtosCart.find((item) => item.id === produtos.id)?.qtd
+                  //   : 0}
+                  addProductCart={addProductCart}
                 />
+
               );
             })}
         </CardsContainer>
+        <aside>
+              {/* <Cart
+                  cardColor={getColors(produtos.type)}
+                  produtosCart={produtosCart}
+                  setProdutosCart={setProdutosCart}
+                  
+                /> */}
+        </aside>
         <footer>
-          <p>feito por Allanzin. ₢ Todos os meus direitos estão reservados aqui em! Você só tem o direito de ficar calado.</p>
+          <p>feito por Allanzin. ₢ Todos os meus direitos estão reservados aqui em!</p>
         </footer>
       </>
     );
